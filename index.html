@@ -1,23 +1,725 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
+
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://example.com/kia-ev8-insurance-premium"
+      },
+      "headline": "기아 EV8 보험료 2026년 기준 종합 분석: 트림별 예상 견적 및 할인 혜택 비교",
+      "image": [
+        "https://example.com/ev8-insurance-main.jpg"
+      ],
+      "datePublished": "2026-03-25",
+      "dateModified": "2026-06-14",
+      "author": {
+        "@type": "Person",
+        "name": "전기차 금융 전략 연구소"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "전기차 보험 비교 분석 센터",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://example.com/logo.png"
+        }
+      },
+      "description": "2026년 출시 예정인 기아의 차세대 고성능 전기 세단 EV8(GT1)의 예상 보험료를 철저히 분석합니다. RWD, AWD, 고성능 GT 모델별 자차 및 대물 보험료 비교와 함께 20대, 30대, 40대 연령별 보험료 차이, 그리고 다양한 특약을 통한 비용 절약 가이드를 제공합니다."
+    }
+    </script>
+    
+    <style>
+        :root {
+            --primary-color: #2b4c59;
+            --secondary-color: #809b9e;
+            --accent-color: #d4a373;
+            --bg-light: #fcf8f2;
+            --text-dark: #2a2c2b;
+            --text-muted: #5e6264;
+            --white: #ffffff;
+            --border-color: #e3dcd5;
+            --card-shadow: 0 8px 30px rgba(43, 76, 89, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+            line-height: 1.8;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin-bottom: 40px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .header-tag {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 30px;
+            display: inline-block;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        header h1 {
+            font-size: 2.6em;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            font-size: 1.15em;
+            color: var(--bg-light);
+            max-width: 800px;
+            font-weight: 300;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .article-card {
+            background-color: var(--white);
+            border-radius: 20px;
+            padding: 50px 40px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        h2 {
+            font-size: 1.9em;
+            color: var(--primary-color);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            color: var(--primary-color);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: var(--text-dark);
+            text-align: justify;
+        }
+
+        .highlight-box {
+            background-color: var(--bg-light);
+            border-left: 4px solid var(--secondary-color);
+            padding: 25px;
+            border-radius: 0 12px 12px 0;
+            margin: 30px 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+
+        /* Table Styling */
+        .table-responsive {
+            overflow-x: auto;
+            margin: 30px 0;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95em;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: var(--white);
+            font-weight: 600;
+            padding: 16px 20px;
+            text-align: center;
+        }
+
+        td {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-dark);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(128, 155, 158, 0.05);
+        }
+
+        /* Grid for Interactive Simulation */
+        .simulation-section {
+            background-color: var(--bg-light);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            border: 1px solid var(--border-color);
+        }
+
+        .simulation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .simulation-grid {
+                grid-template-columns: 1fr;
+            }
+            header h1 {
+                font-size: 2em;
+            }
+            .article-card {
+                padding: 30px 20px;
+            }
+            .simulation-section {
+                padding: 25px;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: var(--white);
+            color: var(--text-dark);
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--secondary-color);
+        }
+
+        .range-slider-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .range-slider {
+            flex-grow: 1;
+            accent-color: var(--secondary-color);
+        }
+
+        .range-value {
+            min-width: 60px;
+            text-align: right;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .sim-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.05em;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .sim-btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Simulation Output styling */
+        .output-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .output-title {
+            font-size: 1.2em;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--bg-light);
+            padding-bottom: 10px;
+        }
+
+        .output-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 0.95em;
+        }
+
+        .output-row.total {
+            font-size: 1.3em;
+            font-weight: 800;
+            color: var(--accent-color);
+            border-top: 2px dashed var(--border-color);
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+
+        .progress-bar-container {
+            background-color: var(--bg-light);
+            border-radius: 8px;
+            height: 12px;
+            width: 100%;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            background-color: var(--secondary-color);
+            height: 100%;
+            width: 0%;
+            transition: width 0.5s ease-in-out;
+        }
+
+        /* External links section */
+        .external-links-container {
+            margin-top: 40px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 30px;
+        }
+
+        .external-links-container h4 {
+            font-size: 1.1em;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .link-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .link-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .link-item {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 12px 18px;
+            background-color: var(--bg-light);
+            border-radius: 8px;
+            transition: all 0.3s;
+            font-size: 0.9em;
+            border: 1px solid transparent;
+        }
+
+        .link-item:hover {
+            background-color: var(--white);
+            border-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 0.85em;
+            border-top: 1px solid var(--border-color);
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <span class="header-tag">기아 EV8 금융 리포트</span>
+        <h1>기아 EV8 보험료 2026년 기준 종합 분석</h1>
+        <p>
+            국산 고성능 전기 패스트백의 새로운 지표를 여는 기아 EV8(프로젝트명 GT1) 모델의 세부 등급별 예상 보험 가입 비용과 보험료 산정 체계, 그리고 2026년 최신 제도를 기반으로 한 합리적인 절약 전략을 한눈에 살펴보실 수 있도록 상세히 구성하였습니다.
+        </p>
+    </header>
+
     <main>
-      <h1>Home page</h1>
+        <article class="article-card">
+            <h2>1. 기아 EV8 모델 및 2026년 전기차 보험 시장 동향</h2>
+            <p>
+                스팅어의 정통 후속이자 기아의 최신 차세대 전기차 전용 플랫폼인 eM을 기반으로 제작되는 고성능 세단 기아 EV8은 독보적인 주행 성능과 고용량 113.2kWh 배터리 팩 탑재로 업계의 뜨거운 관심을 모으고 있습니다. 주행 거리가 대폭 확대되고 603마력에 달하는 고출력 모터 성능을 자랑하는 만큼, 차량 가격과 정비 부품의 특성 역시 기존 내연기관 차량들과 궤를 달리합니다. 이러한 변화는 고성능 전기차 시장에서의 유지 관리 부담 및 사고 시 원상 복구 비용 산정에 지대한 영향을 미칩니다.
+            </p>
+            <p>
+                특히 전기차 자차 보험료 산출 구조에서 핵심적인 역할을 하는 배터리 가액은 전체적인 연간 지출을 결정짓는 주된 변수가 됩니다. 2026년 기준으로 수입산 및 국산 프리미엄 전기차의 손해율 관리를 위해 보험사들이 요율을 고도화하면서, 가입자의 연령과 운전 경력, 그리고 과거 무사고 이력이 보험료 수준을 좌우하는 핵심 잣대로 평가받고 있습니다.
+            </p>
+
+            <div class="highlight-box">
+                <p>
+                    기아 EV8은 초고전압 배터리와 고정밀 첨단 운전자 보조 시스템(ADAS) 및 자율주행 관련 부품이 집약된 차량입니다. 이에 따라 초기 차량 가액이 높게 책정되며, 사고 시 교체 수리비와 정비 공임이 일반 중형차보다 높게 계상될 수밖에 없는 구조적 특징을 지닙니다.
+                </p>
+            </div>
+
+            <h2>2. 기아 EV8 트림별 예상 차량 가격과 평균 보험료 상관관계</h2>
+            <p>
+                기아 EV8 보험료를 분석할 때 가장 먼저 파악해야 할 요소는 세부 등급별 차량 출고 가격입니다. 차량의 기본 출고 가격은 보험 가입 시 자차 담보의 가입 금액인 보험가액으로 직결되기 때문입니다. 싱글모터 후륜구동(RWD) 기본형 모델부터 듀얼모터 사륜구동(AWD), 그리고 고성능을 지향하는 GT 트림까지 세부 사양에 따라 책정되는 기본 가격과 자차 보장 범위에는 유의미한 차이점이 존재합니다.
+            </p>
+            <p>
+                예상되는 차종 등급별 차량 가격은 싱글모터 사양이 약 6천만 원 중후반대, 사륜구동 AWD 모델이 7천만 원대, 최상위 고성능 트림인 GT 모델은 8천만 원을 상회할 것으로 전망되고 있습니다. 차량 가격이 1천만 원 상승할 때마다 자차 담보 영역의 비용은 비례하여 가파르게 상승하며, 특히 고성능 GT 트림의 경우 스포츠 주행 성향으로 인해 대물배상 및 자기차량손해 요율 등급 자체도 다소 높게 조정되어 전체적인 연간 금액 부담이 늘어납니다.
+            </p>
+
+            <h3>2.1. 트림 사양에 따른 예상 보험 구조 요약</h3>
+            <p>
+                싱글모터 후륜구동(RWD) 기본 모델은 일상 주행용 세팅에 맞춰져 있어 손해율 면에서 상대적으로 양호한 평가를 받을 가능성이 높습니다. 반면 듀얼모터 AWD 및 GT 트림은 급격한 토크 출력과 고속 주행성으로 인해 보험 가입 시 요율 할증 요소가 적용될 수 있습니다. 다음 자료는 트림별 하드웨어 사양과 그에 따른 연간 예상 유지 비용 비중을 비교 분석한 결과입니다.
+            </p>
+
+            <div class="table-responsive">
+                <table>
+                    <caption>기아 EV8 등급별 사양 및 보험 구성 예상 비중 (2026년 가상 요율 기준)</caption>
+                    <thead>
+                        <tr>
+                            <th>등급 구성</th>
+                            <th>구동 모터 및 사양</th>
+                            <th>배터리 용량</th>
+                            <th>예상 차량가액 비중</th>
+                            <th>자차 담보 기여도</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>EV8 RWD (싱글모터)</td>
+                            <td>후륜 싱글 (215마력)</td>
+                            <td>113.2 kWh</td>
+                            <td>기본형 (대비 100%)</td>
+                            <td>보통 (40% 내외)</td>
+                        </tr>
+                        <tr>
+                            <td>EV8 AWD (듀얼모터)</td>
+                            <td>전후륜 듀얼 (435마력)</td>
+                            <td>113.2 kWh</td>
+                            <td>중급형 (대비 118%)</td>
+                            <td>다소 높음 (45% 내외)</td>
+                        </tr>
+                        <tr>
+                            <td>EV8 GT (고성능)</td>
+                            <td>고성능 듀얼 (603마력)</td>
+                            <td>113.2 kWh</td>
+                            <td>최상위 (대비 135%)</td>
+                            <td>매우 높음 (55% 이상)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>3. 연령 및 경력 변수가 보험료 산정에 미치는 영향</h2>
+            <p>
+                어떤 차종이든 운전자의 조건은 비용 산정에 있어 결정적인 변수이지만, 600마력이 넘는 고성능 전기 스포츠 세단의 경우에는 그 영향력이 한층 극대화됩니다. 만 21세 및 만 26세 미만 등의 청년층 운전자가 신규 가입을 진행할 때에는 사고 발생 리스크가 통계학적으로 현저히 높게 집계되기 때문에 최초 가입 금액이 크게 증가하게 됩니다.
+            </p>
+            <p>
+                반대로 운전 경력이 10년 이상이고 과거 3년간 무사고 등급을 안정적으로 유지해 온 30대 중후반이나 40대, 50대 오너들의 경우에는 보험사들이 제공하는 요율 우대 혜택과 우수 경력 할인을 폭넓게 적용받아 훨씬 더 경제적인 수준에서 견적을 확보할 수 있습니다. 1인 한정 혹은 부부 한정과 같은 운전자 범위 제한 특약을 적절히 설정하는 것도 부담을 덜어내는 훌륭한 방법입니다.
+            </p>
+
+            <h2>4. 기아 EV8 다이렉트 1:1 예상 보험료 시뮬레이터</h2>
+            <p>
+                오너 개개인의 주행 여건과 특약 적용 상황에 맞춘 연간 예상 납입 비용을 가상으로 계산해 볼 수 있는 인터랙티브 시뮬레이터입니다. 아래의 세부 정보들을 조정하면서 본인의 조건에 부합하는 적정 납입 수준을 즉각적으로 도출해 보시기 바랍니다.
+            </p>
+
+            <div class="simulation-section">
+                <div class="simulation-grid">
+                    <div>
+                        <h3 style="margin-top:0;">운전자 및 차량 조건 입력</h3>
+                        
+                        <div class="form-group">
+                            <label for="simModel">선택 트림</label>
+                            <select id="simModel" class="form-control" onchange="calculatePremium()">
+                                <option value="rwd">EV8 RWD 기본형 (싱글모터)</option>
+                                <option value="awd">EV8 AWD 중급형 (듀얼모터)</option>
+                                <option value="gt">EV8 GT 최고급형 (603마력)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="simAge">가입 연령대 범위</label>
+                            <select id="simAge" class="form-control" onchange="calculatePremium()">
+                                <option value="young">만 26세 미만 청년 신규 가입</option>
+                                <option value="mid">만 26세 이상 30대 미만 주행자</option>
+                                <option value="senior">만 30세 이상 40대 미만 우대군</option>
+                                <option value="mature">만 40세 이상 무사고 숙련자</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="simHistory">직전 3개년 사고 유무</label>
+                            <select id="simHistory" class="form-control" onchange="calculatePremium()">
+                                <option value="clean">최근 3년간 완전 무사고</option>
+                                <option value="minor">경미한 단순 대물 처리 1회</option>
+                                <option value="major">사고 처리 이력 다수 존재</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="simMileage">연간 예상 주행 거리</label>
+                            <div class="range-slider-container">
+                                <input type="range" id="simMileage" class="range-slider" min="3000" max="25000" step="1000" value="10000" oninput="updateMileageValue(this.value)">
+                                <span class="range-value" id="mileageDisplay">10,000 km</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="simSafety">TMAP / 카카오내비 안전점수</label>
+                            <div class="range-slider-container">
+                                <input type="range" id="simSafety" class="range-slider" min="50" max="100" step="1" value="85" oninput="updateSafetyValue(this.value)">
+                                <span class="range-value" id="safetyDisplay">85 점</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="simBlackbox">블랙박스 및 첨단 ADAS 장착</label>
+                            <select id="simBlackbox" class="form-control" onchange="calculatePremium()">
+                                <option value="both">블랙박스 및 지능형 안전장치 모두 포함</option>
+                                <option value="bb">블랙박스만 단독 장착</option>
+                                <option value="none">해당 장치 없음</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="output-card">
+                        <div>
+                            <div class="output-title">가상 시뮬레이션 산출 결과</div>
+                            
+                            <div class="output-row">
+                                <span>기준 기본료</span>
+                                <span id="outBase">0 원</span>
+                            </div>
+                            <div class="output-row">
+                                <span>연령 및 경력 요율 변동</span>
+                                <span id="outAgeFactor">0%</span>
+                            </div>
+                            <div class="output-row">
+                                <span>사고 이력 영향도</span>
+                                <span id="outHistoryFactor">0%</span>
+                            </div>
+                            <div class="output-row" style="color: var(--secondary-color); font-weight:600;">
+                                <span>마일리지 특약 예상 환급액</span>
+                                <span id="outMileageDisc">0 원</span>
+                            </div>
+                            <div class="output-row" style="color: var(--secondary-color); font-weight:600;">
+                                <span>안전운전 및 ADAS 할인액</span>
+                                <span id="outSafetyDisc">0 원</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="output-row total">
+                                <span>최종 예상 납입액</span>
+                                <span id="outTotal">0 원</span>
+                            </div>
+                            <p style="font-size: 0.75em; color: var(--text-muted); margin-top: 15px; margin-bottom: 0;">
+                                본 산출 금액은 2026년도 개인용 전기차 자차 요율을 가정한 통계 기반 시뮬레이션입니다. 실제 개별 보험 가입 시에는 상세 특약 조건 및 선택 보장 한도 설정에 따라 금액 변동이 있을 수 있습니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2>5. 유지비 부담을 경감하는 합리적인 절약 특약과 팁</h2>
+            <p>
+                전기 스포츠 패스트백 특성상 기본 산정 단가가 높기 때문에 적극적인 할인 특약의 설계가 필수적입니다. 자량 내부에 기본 빌트인되어 출시되는 멀티미디어 장비와 지능형 전방 충돌 방지 보조 장치들을 빠짐없이 기재하는 것이 비용을 절감하는 영리한 방편입니다.
+            </p>
+            <p>
+                우선 주행 연동 마일리지 특약은 주중 대중교통 이용 비율이 높거나 연간 주행 거리가 짧은 오너들에게 유익합니다. 통상 1만 킬로미터 이하를 주행할 경우 최종 정산 시점에 적지 않은 환급 혜택이 주어집니다. 더불어 티맵이나 카카오내비 등에서 평소 안전운전 점수를 양호하게 축적해 둔다면 각 보험 업체별로 평균 11%에서 최대 13% 수준의 할인을 즉각 반영해 주므로 상당한 비용 절감 효과를 기대할 수 있습니다.
+            </p>
+            <p>
+                처음 차량을 구매해 신규 가입을 전개할 때는 시중의 다이렉트 전용 경로를 적극 활용하여 불필요한 대리점 수수료 지출을 자제하는 것이 이롭습니다. 인터넷 비교 채널을 통해 가장 저렴한곳 혹은 싼곳 위주로 순위를 도출해 낸 뒤, 각사에서 수시로 집행하는 모바일 주유 사은품 증정이나 현금지원 프로모션, 신용카드 제휴 상품권 교환 이벤트 혜택 등을 결합하면 실제 체감하는 신규 가입 장벽은 한층 낮아지게 됩니다.
+            </p>
+
+            <h2>6. 주요 자동차 동호회 반응 및 최신 정보 탐색 현황</h2>
+            <p>
+                유명 자동차 관련 포럼인 보배드림이나 대형 커뮤니티인 디시인사이드 전기차 갤러리, 에펨코리아(펨코)의 자동차 게시판 등에서는 벌써부터 기아 EV8의 예상 출시 시점과 스팅어를 대체할 수 있을지에 대한 기대 섞인 글들이 줄을 잇고 있습니다. 특히 스팅어 오너들이 가장 궁금해하는 스포츠 전기차 유지비 차이점과 연간 세제 혜택 유무에 대한 격렬한 토론이 이뤄지고 있습니다.
+            </p>
+            <p>
+                일부 유저들의 내돈내산 가상 출고기나 사전 분석 글을 검토해 보면 포르쉐 타이칸이나 아우디 e-트론 GT 등과 같은 수억 원대 고가 수입 전기차 성능의 절반 수준에 불과한 가격대로 기아 EV8의 폭발적인 드라이빙을 누릴 수 있다는 사실에 뜨겁게 열광하는 양상입니다. 이에 따라 초기 수리비 리스크를 헤지하기 위해 자차 가입 범위를 어떻게 안전하게 구성하는가에 대한 논의도 심도 있게 오가고 있습니다.
+            </p>
+            <p>
+                보다 고도화된 세제 혜택이나 취등록세 경감 요건을 분석할 때는 유튜브 채널이나 트위터, 인스타그램, 페이스북 등의 동향을 모니터링하는 것도 권장됩니다. 아울러 제미나이(Gemini) 또는 챗지피티(ChatGPT)와 같은 최신 AI 어시스턴트를 유연하게 사용하면, 변화무쌍한 2026년 최신 보조금 수급 요율과 지역별 지원금 수령 조건을 오류 없이 실시간으로 계산해 낼 수 있어 주행 전략 마련에 우수한 참고가 됩니다.
+            </p>
+
+            <div class="external-links-container">
+                <h4>신뢰할 수 있는 정보 제공 공인 사이트 리스트</h4>
+                <div class="link-grid">
+                    <a href="https://www.fss.or.kr" target="_blank" class="link-item">금융감독원 (FSS) - 자동차 보험 규정 및 권익 보호 수칙</a>
+                    <a href="https://www.knia.or.kr" target="_blank" class="link-item">손해보험협회 (KNIA) - 실시간 보험료 비교 공시 서비스</a>
+                    <a href="https://www.kidi.or.kr" target="_blank" class="link-item">보험개발원 (KIDI) - 차량모델 등급 및 차량가액 요율 산출</a>
+                    <a href="https://www.law.go.kr" target="_blank" class="link-item">국가법령정보센터 - 자동차손해배상 보장법 및 세제 혜택 규정</a>
+                    <a href="https://www.kia.com" target="_blank" class="link-item">기아 공식 웹사이트 - EV8 차세대 플랫폼 및 세부 사양 정보</a>
+                    <a href="https://namu.wiki/w/%EA%B8%B0%EC%95%84%20EV8" target="_blank" class="link-item">나무위키 - 기아 EV8(GT1) 개발 역사 및 제원 정리</a>
+                </div>
+            </div>
+        </article>
     </main>
-  </body>
-</html>
+</div>
+
+<script>
+    function updateMileageValue(val) {
+        document.getElementById('mileageDisplay').innerText = Number(val).toLocaleString() + ' km';
+        calculatePremium();
+    }
+
+    function updateSafetyValue(val) {
+        document.getElementById('safetyDisplay').innerText = val + ' 점';
+        calculatePremium();
+    }
+
+    function calculatePremium() {
+        const model = document.getElementById('simModel').value;
+        const age = document.getElementById('simAge').value;
+        const history = document.getElementById('simHistory').value;
+        const mileage = Number(document.getElementById('simMileage').value);
+        const safety = Number(document.getElementById('simSafety').value);
+        const blackbox = document.getElementById('simBlackbox').value;
+
+        // Base Premium calculation
+        let basePremium = 1200000;
+        if (model === 'awd') {
+            basePremium = 1550000;
+        } else if (model === 'gt') {
+            basePremium = 1980000;
+        }
+
+        // Age factor
+        let ageFactor = 1.0;
+        let ageLabel = '100%';
+        if (age === 'young') {
+            ageFactor = 1.85;
+            ageLabel = '185% (신규/청년 할증)';
+        } else if (age === 'mid') {
+            ageFactor = 1.35;
+            ageLabel = '135% (경력 미흡)';
+        } else if (age === 'senior') {
+            ageFactor = 1.0;
+            ageLabel = '100% (표준 할인 적용)';
+        } else if (age === 'mature') {
+            ageFactor = 0.82;
+            ageLabel = '82% (무사고 장기 숙련)';
+        }
+
+        // Accident history factor
+        let historyFactor = 1.0;
+        let historyLabel = '100%';
+        if (history === 'clean') {
+            historyFactor = 0.85;
+            historyLabel = '85% (과거 3년 무사고)';
+        } else if (history === 'minor') {
+            historyFactor = 1.25;
+            historyLabel = '125% (사고 이력 할증)';
+        } else if (history === 'major') {
+            historyFactor = 1.75;
+            historyLabel = '175% (다수 처리 할증)';
+        }
+
+        // Calculate pre-discount premium
+        let preDiscount = basePremium * ageFactor * historyFactor;
+
+        // Discount details
+        let mileageDisc = 0;
+        if (mileage <= 5000) {
+            mileageDisc = preDiscount * 0.28;
+        } else if (mileage <= 10000) {
+            mileageDisc = preDiscount * 0.18;
+        } else if (mileage <= 15000) {
+            mileageDisc = preDiscount * 0.08;
+        }
+
+        let safetyDisc = 0;
+        if (safety >= 90) {
+            safetyDisc = preDiscount * 0.12;
+        } else if (safety >= 80) {
+            safetyDisc = preDiscount * 0.07;
+        }
+
+        // Blackbox & ADAS discount
+        let deviceDisc = 0;
+        if (blackbox === 'both') {
+            deviceDisc = preDiscount * 0.06;
+        } else if (blackbox === 'bb') {
+            deviceDisc = preDiscount * 0.02;
+        }
+
+        let totalSafetyDisc = safetyDisc + deviceDisc;
+        let totalDiscount = mileageDisc + totalSafetyDisc;
+        let finalPremium = preDiscount - totalDiscount;
+
+        // Floor final premium
+        if (finalPremium < 450000) {
+            finalPremium = 450000;
+        }
+
+        // Update UI
+        document.getElementById('outBase').innerText = basePremium.toLocaleString() + ' 원';
+        document.getElementById('outAgeFactor').innerText = ageLabel;
+        document.getElementById('outHistoryFactor').innerText = historyLabel;
+        document.getElementById('outMileageDisc').innerText = '-' + Math.round(mileageDisc).toLocaleString() + ' 원';
+        document.getElementById('outSafetyDisc').innerText = '-' + Math.round(totalSafetyDisc).toLocaleString() + ' 원';
+        document.getElementById('outTotal').innerText = Math.round(finalPremium).toLocaleString() + ' 원';
+    }
+
+    // Initialize premium calculation
+    window.onload = function() {
+        calculatePremium();
+    }
+</script>
+  
